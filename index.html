@@ -74,7 +74,7 @@ body {
 .gallery img:hover {
   transform: scale(1.1);
 }
-Songs of Solomon 4 verse 11 "Your lips drop sweetness as the honeycomb, my bride; milk and honey are under your tongue. The fragrance of your garments is like the fragrance of lebanon" 
+
 /* BUTTONS */
 button {
   padding: 14px 30px;
@@ -89,7 +89,6 @@ button {
 #yesBtn {
   background: linear-gradient(135deg, #ff4d6d, #ff85c2);
 }
-
 #noBtn {
   background: #adb5bd;
   position: relative;
@@ -104,15 +103,13 @@ button {
   box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
 }
 
-/* NO MESSAGE */
+/* TEXT */
 .no-message {
   margin-top: 15px;
   font-size: 16px;
   color: #ff4d6d;
   min-height: 22px;
 }
-
-/* LOVE TEXT */
 .love-text {
   font-size: 18px;
   color: #ff4d6d;
@@ -120,7 +117,25 @@ button {
   min-height: 28px;
 }
 
-/* FLOATING HEARTS & ROSES */
+/* BIBLE VERSE */
+.verse {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fff0f6;
+  border-left: 5px solid #ff4d6d;
+  border-radius: 12px;
+  font-style: italic;
+  color: #b0004b;
+  box-shadow: 0 10px 20px rgba(255, 77, 109, 0.25);
+}
+.verse span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* FLOATING ITEMS */
 .floating {
   position: absolute;
   animation: floatUp 5s linear infinite;
@@ -132,7 +147,7 @@ button {
   100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
 }
 
-/* BIG BOUQUET */
+/* BOUQUET */
 .bouquet {
   font-size: 40px;
   line-height: 1.2;
@@ -150,7 +165,7 @@ button {
 <!-- SLIDE 1 -->
 <div class="slide active">
   <h1>Will you be my Valentine? 💕</h1>
-  <img src="her.jpg" class="photo">
+  <img src="us1.jpg" class="photo">
 
   <div>
     <button id="yesBtn">Yes 😍</button>
@@ -164,10 +179,10 @@ button {
 <div class="slide">
   <h2>Our Beautiful Memories 💞</h2>
   <div class="gallery">
-    <img src="Us1.jpg">
-    <img src="Us2.jpg">
-    <img src="Us3.jpg">
-    <img src="Us4.jpg">
+    <img src="us1.jpg">
+    <img src="us2.jpg">
+    <img src="us3.jpg">
+    <img src="us4.jpg">
   </div>
   <button id="nextSlide" class="romantic-btn">Relive Our Love 💞</button>
 </div>
@@ -177,7 +192,6 @@ button {
   <h1>💖 I LOVE YOU BABY 💖</h1>
   <h2>#COURTSHIP 💍</h2>
 
-  <!-- BIG BOUQUET OF ROSES -->
   <div class="bouquet">
     🌹🌹🌹🌹🌹<br>
     🌹🌹🌹🌹🌹<br>
@@ -186,11 +200,18 @@ button {
   </div>
 
   <p id="loveText" class="love-text"></p>
+
+  <!-- BIBLE VERSE -->
+  <div class="verse">
+    “Your lips drop sweetness as the honeycomb, my bride;
+    milk and honey are under your tongue.
+    The fragrance of your garments is like the fragrance of Lebanon.”
+    <span>— Song of Solomon 4:11</span>
+  </div>
 </div>
 
-<!-- MUSIC -->
 <audio id="music" loop preload="auto">
-  <source src="Power Trip.mp3" type="audio/mpeg">
+  <source src="power-trip.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -210,10 +231,10 @@ const messages = [
   "Okay… last chance 😭"
 ];
 
-const text = "You make me want to learn new things, you make me want to explore the world ";
+const text = "You make me want to learn new things, explore the world, and love deeper every day 💖";
 let noCount = 0;
 
-/* MUSIC FADE IN */
+/* MUSIC */
 document.body.addEventListener('click', () => {
   music.volume = 0;
   music.play();
@@ -246,7 +267,7 @@ nextSlide.addEventListener('click', () => {
   typeLoveText();
 });
 
-/* TYPING EFFECT */
+/* TYPING */
 function typeLoveText() {
   let i = 0;
   loveText.textContent = "";
@@ -257,12 +278,12 @@ function typeLoveText() {
   }, 60);
 }
 
-/* HEARTS + ROSES */
+/* FLOATING LOVE */
 function createLove() {
   setInterval(() => {
     const item = document.createElement('div');
     item.className = 'floating';
-    item.innerHTML = ['❤️','💖','💗','💕','🌹','🌹'][Math.floor(Math.random()*6)];
+    item.innerHTML = ['❤️','💖','💗','💕','🌹'][Math.floor(Math.random()*5)];
     item.style.left = Math.random() * window.innerWidth + 'px';
     item.style.top = window.innerHeight + 'px';
     item.style.fontSize = (22 + Math.random()*28) + 'px';
@@ -274,5 +295,3 @@ function createLove() {
 
 </body>
 </html>
-
-
